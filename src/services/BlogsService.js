@@ -10,11 +10,10 @@ class BlogsService {
         AppState.blogs = res.data.map(blog => new Blog(blog))
     }
 
-    setActiveBlog(blogId) {
-
-        const foundBlog = AppState.blogs.find(blog => blog.id == blogId)
-
-        AppState.activeBlog = foundBlog
+    async getBlogById(blogId) {
+        AppState.activeBlog = null
+        const blog = await api.get(`/api/blogs/${blogId}`)
+        AppState.activeBlog = new Blog(blog.data)
     }
 }
 
