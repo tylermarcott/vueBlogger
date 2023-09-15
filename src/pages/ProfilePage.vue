@@ -1,5 +1,12 @@
 <template>
-    {{ profile }}
+    <section class="container">
+        <div class="row profile-card">
+            <div class="col-6 img-fluid">
+                <img :src="profile.picture" :alt="profile.name">
+                <h3 class="m-2 text-light">{{ profile.name }}</h3>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -33,4 +40,12 @@ export default {
 </script>
 
 
-<style></style>
+
+<style>
+.profile-card {
+    height: 70vh;
+    background-color: #3b3b58;
+    margin-top: 1em;
+    border-radius: 14px;
+}
+</style>
